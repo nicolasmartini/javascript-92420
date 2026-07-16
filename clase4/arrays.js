@@ -120,7 +120,7 @@ console.log(testing3.shift())
 console.log("shift", testing3)
 
 // 🔹 💥Pop❌ 🔹
-// Agrega un elemento al principio del array. Retorna el elemento removido.
+// Quita un elemento al principio del array. Retorna el elemento removido.
 
 console.log(testing0)
 console.log(testing4.pop())

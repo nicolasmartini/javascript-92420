@@ -2,7 +2,7 @@
 // Los distintos tipos de almacenamiento
 
 // 🔶 JSON 🔶
-// JavaScript Language Notation
+// JavaScript Object Notation
 // Es un formato de información que permite intercambiar datos entre distintos lenguajes
 // Se pueden crear archivos de formato JSON con ".json"
 // En burdo, combierte los datos en un string de manera que puedan ser interpretados

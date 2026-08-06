@@ -4,7 +4,21 @@ Un ternario es un algoritmo que combina en una sola línea un if...else con un r
 
 condición ? siVerdadero : siFalso
 
+if(condinción){
+    return siVerdadero
+} else {
+    return siFalso
+}
+
 Si la condición dada es verdadera, hace un return del valor de siVerdadero, si es falsa, da un return del siFalso
+
+*/
+
+// 🔶 Optional Chaining 🔶
+
+/*
+
+Se fija si existe el objeto antes de acceder a la propiedad 
 
 */
 

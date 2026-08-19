@@ -1,31 +1,3 @@
-// 🟠 Timers
-// Nota 1 segundo = 1000ms
-
-// 🔹 setTimeout(funcion, tiempoMS)
-// Ejecuta asincronicamente una funcion luego del tiempo dado
-// Retorna su id numérico
-
-// 🔹 setInterval(funcion, tiempoMS)
-// Ejecuta asincronicamente una funcion de maenera ciclica luego de que pase el tiempo dado
-// Retorna su id numérico
-
-// 🔶 Crear
-// setTimeout(funcion, tiempoMs)
-
-// console.log('hola')
-// const trabajar = (string)=>console.log(string)
-// setTimeout(()=>{trabajar('trabajando')}, 10000)
-// setTimeout(()=>trabajar('trabajando rapido'), 1000)
-// console.log('chau')
-
-// setInterval(funcion, tiempoMs)
-// setInterval(()=>{console.log("tenes tiempo?")}, 1000)
-// 🔶 Frenar
-
-// clearTimeout(id)
-
-// clearInterval(id)
-
 // 🟠 Orden de ejecución
 // Js tiene algo llamado el call stack, el la "pila de ejecución" y en ella se guardan lso códigos a ejecutar. Se puede imaginar como una pila de platos. Uno resuelve los platos a medida que van llegando, pero si se apilan platos, uno tiene que limpiar el de más arriba (el último proceso).
 // Los pedidos sincrónicos van directamente al call stack y los asincrónicos van a algo llamado al Web Apis. Las cosas de web apis se van resolviendo asincrónicamente y una vez resueltas pasan al callback queue (fila de llamado). Si el call stack esta vació y terminaron los procesos sincrónicos, el primer proceso del callback queue entra al call stack.

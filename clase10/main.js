@@ -5,82 +5,50 @@ const btnSwal = document.querySelector("#btnSwal")
 const btnLista = document.querySelector("#verLista")
 const lista = document.querySelector("#lista")
 
-/* btnSwal.addEventListener("click",()=>{
-  Swal.fire({
-    title: "Ey!",
-    text: "No me toques!",
-    icon: "warning",
-    confirmButtonText: "Entendido"
-  });
-}) */
 
-function hacerTostada(nombreProd){
-  const Toast = Swal.mixin({
-    toast: true,
-    position: "top-end",
-    showConfirmButton: false,
-    timer: 3000,
-    timerProgressBar: true,
-  });
-  Toast.fire({
-    icon: "success",
-    title: `Se agrego "${nombreProd}" al carrito exitosamente`
-  });
-} 
-
-const mostrarLista = async ()=>{
-  try {
-    const datosJSON = await fetch("./lista.json")
-    const datos = await datosJSON.json()
-  
-    lista.innerHTML = ""
-    datos.forEach(prod=>{
-      const li = document.createElement("li")
-      li.id = `lista-${prod.id}`
-  
-      const texto = document.createElement("span")
-      texto.innerText = prod.nombre
-  
-      const btn = document.createElement("button")
-      btn.innerText = "Agregar"
-      btn.addEventListener("click",()=>hacerTostada(prod.nombre))
-  
-      li.appendChild(texto)
-      li.appendChild(btn)
-  
-      lista.appendChild(li)
-    })
-  } catch (error) {
-    console.warn("Error:",error)
+// btnSwal.addEventListener("click", ()=>(Swal.fire({
+//   title: "Auch!",
+//   text: "¡No me toqués!",
+//   icon: "error"
+// })))
+/* btnSwal.addEventListener("click", ()=>(Swal.mixin({
+  toast: true,
+  position: "top-end",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
   }
-}
-
-// btnLista.addEventListener("click",mostrarLista)
-btnLista.style="display:none;"
-
-document.addEventListener("DOMContentLoaded", mostrarLista)
+}).fire({
+  icon: "success",
+  title: "Producto agregado al carrito"
+}))) */
 
 // toastify
 // https://apvarun.github.io/toastify-js/
 
 const botonToastify = document.querySelector("#botonToastify")
 
-botonToastify.addEventListener("click", ()=>{
-  Toastify({
-    text: "Funciono gracias a toastify",
-    duration: 3000,
-    close: true,
-    gravity: "bottom",
-    stopOnFocus: true, // Prevents dismissing of toast on hover
-    style: {
-      background: "linear-gradient(to right, white, orange)",
-      color: "black"
-    },
-    onClick: function(){
-      Swal.fire({text: "Soy la competencia"})
-    } // Callback after click
-  }).showToast();
-})
+/* botonToastify.addEventListener("click", ()=>(Toastify({
+  text: "Me clickeaste",
+  duration: 2000,
+  close: true,
+  gravity: "top", // `top` or `bottom`
+  position: "right", // `left`, `center` or `right`
+  stopOnFocus: true, // Prevents dismissing of toast on hover
+  style: {
+    background: "linear-gradient(to right, #e0e4e3, #cf6604)",
+  },
+  onClick: function(){
+    Swal.fire({
+      title: "Auch!",
+      text: "¡No me toqués!",
+      icon: "error"
+    })
+  } // Callback after click
+}).showToast())) */
 
 
 // Luxon
@@ -90,9 +58,10 @@ console.log(new Date())
 
 const DateTime = luxon.DateTime;
 
-console.log(DateTime.local(2017, 5, 15, 8, 30))
+/* console.log(DateTime.local(2017, 5, 15, 8, 30))
 console.log(DateTime.now().toUTC().toLocaleString(DateTime.DATETIME_MED)) 
-
+console.log(DateTime.now().toLocal().toLocaleString(DateTime.DATETIME_MED)) 
+ */
 // btnToast.addEventListener("click", ()=>{
 //   Toastify({
 //         text: DateTime.now().toFormat('MMMM dd, yyyy, hh  :mm:ss'),
@@ -107,3 +76,81 @@ console.log(DateTime.now().toUTC().toLocaleString(DateTime.DATETIME_MED))
 //       }).showToast();
 // })
 
+
+/* function mostrarProductos(){
+  fetch("./products.json")
+  .then(rta=>rta.json())
+  .then(respuesta=>{
+    lista.innerHTML = ""
+    respuesta.forEach(prod=>{
+      const li = document.createElement("li")
+      const h3 = document.createElement("h3")
+      const p = document.createElement("p")
+      const btn = document.createElement("button")
+
+      h3.innerText = prod.name
+      p.innerText = prod.price
+      btn.innerText = "Comprar"
+
+      li.appendChild(h3)
+      li.appendChild(p)
+      li.appendChild(btn)
+
+      lista.appendChild(li)
+    })
+  })
+  .catch(e=>console.warn("Loco metiste la pata:", e))
+} */
+
+/* async function mostrarProductos(){
+  
+  try{
+    const datosJSON = await fetch("./products.json")
+    const datosParseados = await datosJSON.json()
+    
+    lista.innerHTML = ""
+    datosParseados.forEach(prod=>{
+      const li = document.createElement("li")
+      const h3 = document.createElement("h3")
+      const p = document.createElement("p")
+      const btn = document.createElement("button")
+  
+      h3.innerText = prod.name
+      p.innerText = prod.price
+      btn.innerText = "Comprar"
+  
+      li.appendChild(h3)
+      li.appendChild(p)
+      li.appendChild(btn)
+  
+      lista.appendChild(li)
+    })
+  }catch(error){
+    console.warn("El error es:", error)
+  }
+}
+btnLista.addEventListener("click", mostrarProductos)
+*/
+
+async function mostrarPokemon(){
+  const url = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=151"
+
+  try{
+    const datosJSON = await fetch(url)
+    const datosParseados = await datosJSON.json()
+    
+    lista.innerHTML = ""
+
+    datosParseados.results.forEach(poke=>{
+      const li = document.createElement("li")
+      
+      li.innerText = poke.name
+  
+      lista.appendChild(li)
+    }) 
+  }catch(error){
+    console.warn("El error es:", error)
+  }
+}
+
+btnLista.addEventListener("click", mostrarPokemon)

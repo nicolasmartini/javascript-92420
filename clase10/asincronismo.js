@@ -176,9 +176,9 @@ async function postData(url = "", data = {}) {
 } 
 
 // post | Agrega datos
-// postData(mockapiURL, producto, "POST").then((data) => {
-//     console.log(data);
-// });
+/* postData(mockapiURL, producto, "POST").then((data) => {
+    console.log(data);
+}); */
 
 // get
 async function getData(url = "") {
@@ -214,9 +214,9 @@ async function putData(url = "", data = {}, id) {
     });
     return response.json(); // parsea json
 }
-// putData(mockapiURL,productosModificado, 2).then((data) => {
-//     console.log(data);
-// });
+/* putData(mockapiURL,productosModificado, 2).then((data) => {
+    console.log(data);
+}); */
 
 // Delete | borrar
 async function deleteData(url = "", id) {
@@ -227,9 +227,9 @@ async function deleteData(url = "", id) {
     return response.json(); // parsea json
 }
 // El id Cambia
-// deleteData(mockapiURL, 2).then((data) => {
-//     console.log(data);
-// }); 
+deleteData(mockapiURL, 2).then((data) => {
+    console.log(data);
+}); 
 
 
 
